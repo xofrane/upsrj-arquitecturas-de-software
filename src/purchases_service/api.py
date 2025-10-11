@@ -42,7 +42,7 @@ def get_purchase_by_id(purchase_id):
     for p in purchases:
         if p["id"] == purchase_id:
             return jsonify(p)
-    return jsonify({"error": "Compra no encontrada"}), 404
+    return jsonify({"error": "Compra no encontrada"}), 400
 
 # Crear nueva compra
 @app.route("/api/purchases", methods=["POST"])
@@ -56,9 +56,9 @@ def create_purchase():
     product_resp = requests.get(f"{PRODUCTS_API_URL}/{product_id}")
 
     if user_resp.status_code != 200:
-        return jsonify({"error": f"Usuario {user_id} no encontrado"}), 404
+        return jsonify({"error": f"Usuario {user_id} no encontrado"}), 400
     if product_resp.status_code != 200:
-        return jsonify({"error": f"Producto {product_id} no encontrado"}), 404
+        return jsonify({"error": f"Producto {product_id} no encontrado"}), 400
 
     purchases = load_purchases()
     new_purchase = {
