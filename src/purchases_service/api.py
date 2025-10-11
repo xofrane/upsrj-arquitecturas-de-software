@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 import json
 from datetime import datetime
 import os
+import requests
+
 
 app = Flask(__name__)
 USERS_API_URL = "http://127.0.0.1:5003/api/users"
