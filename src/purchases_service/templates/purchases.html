@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Compras usuario {{ user_id }}</title></head>
+  <body>
+    <h1>Compras de usuario {{ user_id }}</h1>
+    <ul>
+      {% for p in purchases %}
+        <li>ID: {{ p.id }} — producto_id: {{ p.product_id }} — {{ p.timestamp }}</li>
+      {% else %}
+        <li>No hay compras</li>
+      {% endfor %}
+    </ul>
+    <p><a href="/create">Registrar nueva compra</a></p>
+  </body>
+</html>

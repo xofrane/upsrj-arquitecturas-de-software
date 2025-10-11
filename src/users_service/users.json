@@ -1,22 +1,35 @@
 [
     {
         "id": 1,
-        "name": "Alice"
+        "name": "Alice",
+        "purchases_product": [
+            3,
+            5
+        ]
     },
     {
         "id": 2,
-        "name": "Bob"
+        "name": "Bob",
+        "purchases_product": []
     },
     {
         "id": 3,
-        "name": "Lalo"
+        "name": "Lalo",
+        "purchases_product": []
     },
     {
         "id": 4,
-        "name": "Carlos"
+        "name": "Carlos",
+        "purchases_product": []
     },
     {
         "id": 5,
-        "name": "Carlos"
+        "name": "Carlos",
+        "purchases_product": []
+    },
+    {
+        "id": 6,
+        "name": "fran",
+        "purchased_products": []
     }
 ]

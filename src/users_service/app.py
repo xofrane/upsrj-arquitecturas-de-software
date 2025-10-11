@@ -25,6 +25,12 @@ def get_users():
 def create_user_form():
     return render_template("create_user.html")
 
+
+@app.route('/', methods=['GET'])
+def index():
+    return redirect(url_for('get_users'))
+
+
 @app.route('/users', methods=['POST'])
 def create_user():
     name = request.form.get("name")
@@ -32,7 +38,7 @@ def create_user():
         return "El nombre del usuario es requerido", 400
 
     users = load_item(USERS_FILE)
-    user = {'id': len(users) + 1, 'name': name}
+    user = {'id': len(users) + 1, 'name': name, 'purchased_products': []}
     users.append(user)
     save_item(USERS_FILE, users)
 
@@ -40,3 +46,5 @@ def create_user():
 
 if __name__ == '__main__':
     app.run(port=get_host(USER_SERVICE_URL))
+
+

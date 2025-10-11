@@ -9,4 +9,7 @@ def save_item(file, item):
         json.dump(item, f, indent=4)
         
 def get_host(url: str):
-    return url.split(":")[-1]
+    try:
+        return int(url.split(":")[-1])
+    except (ValueError, IndexError):
+        return 5000  # valor por defecto
