@@ -5,6 +5,8 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
+
 
 USERS_API_URL = "http://127.0.0.1:5003/api/users"
 PRODUCTS_API_URL = "http://127.0.0.1:5005/api/products"
