@@ -36,5 +36,10 @@
         "id": 7,
         "name": "daki",
         "purchased_products": []
+    },
+    {
+        "id": 8,
+        "name": "fabian",
+        "purchased_products": []
     }
 ]

@@ -28,11 +28,15 @@ def get_purchases():
     purchases = load_purchases()
     return render_template("purchases.html", purchases=purchases, title="Compras")
 
-# 🔹 GET /purchases/<user_id>
 @app.route("/purchases/<int:user_id>")
 def get_purchases_by_user(user_id):
-    purchases = [p for p in load_purchases() if p["user_id"] == user_id]
-    return render_template("purchases.html", purchases=purchases, title="Compras")
+    try:
+        purchases = [p for p in load_purchases() if p.get("user_id") == user_id]
+    except Exception:
+        purchases = []
+
+    # Siempre devolver 200 (aunque la lista esté vacía)
+    return render_template("purchases.html", purchases=purchases, title="Compras"), 200
 
 # 🔹 POST /purchases
 @app.route("/purchases", methods=["POST"])
